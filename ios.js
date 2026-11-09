@@ -8,7 +8,16 @@
   // Service Worker: Offline-Start + schnelleres Laden
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('./sw.js').catch(function () {});
+      navigator.serviceWorker.register('./sw.js').then(function (r) { try { r.update(); } catch (e) {} }).catch(function () {});
+    });
+  }
+
+  // Neue Version: direkt beim Start übernehmen (kein Neuinstallieren nötig)
+  if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+    var reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (reloaded || performance.now() > 20000) return;
+      reloaded = true; location.reload();
     });
   }
 

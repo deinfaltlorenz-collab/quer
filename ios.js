@@ -31,19 +31,82 @@
   document.addEventListener('touchend', askMotion, { passive: true });
   document.addEventListener('click', askMotion, { passive: true });
 
-  // Bildschirm wach halten, solange die App offen ist und gefahren wird
-  var lock = null;
-  window.zfWake = function (on) {
+  // ---- Fahren: Bildschirm wach halten (Wake Lock, sonst stilles Video) ----
+  var lock = null, vid = null, hiddenAt = 0;
+  window.zfDriving = false;
+  function wakeVideo(on) {
     try {
-      if (on && 'wakeLock' in navigator && !lock) {
-        navigator.wakeLock.request('screen').then(function (l) {
-          lock = l;
-          l.addEventListener('release', function () { lock = null; });
-        }).catch(function () {});
-      } else if (!on && lock) { lock.release(); lock = null; }
+      if (on) {
+        if (!vid) {
+          vid = document.createElement('video');
+          vid.setAttribute('playsinline', ''); vid.setAttribute('muted', ''); vid.muted = true; vid.loop = true;
+          vid.src = './wake.mp4';
+          vid.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;left:0;top:0';
+          document.body.appendChild(vid);
+        }
+        var p = vid.play(); if (p && p.catch) p.catch(function () {});
+      } else if (vid) { vid.pause(); }
+    } catch (e) {}
+  }
+  function lockOn() {
+    if ('wakeLock' in navigator) {
+      navigator.wakeLock.request('screen').then(function (l) {
+        lock = l; l.addEventListener('release', function () { lock = null; });
+      }).catch(function () { wakeVideo(true); });
+    } else wakeVideo(true);
+  }
+  window.zfWake = function (on) {
+    window.zfDriving = !!on;
+    try {
+      if (on) { askMotion(); if (!lock) lockOn(); }
+      else { if (lock) { lock.release(); lock = null; } wakeVideo(false); }
     } catch (e) {}
   };
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { hiddenAt = Date.now(); return; }
+    if (window.zfDriving) {
+      lockOn();
+      var sec = Math.round((Date.now() - hiddenAt) / 1000);
+      if (hiddenAt && sec > 4) toast('Die Fahrt war ' + (sec < 90 ? sec + ' Sekunden' : Math.round(sec / 60) + ' Minuten') + ' pausiert. Am iPhone misst QUER nur, solange die App offen ist.');
+    }
+  });
+  function toast(t) {
+    var d = document.createElement('div'); d.className = 'zf-ios-toast'; d.textContent = t;
+    document.body.appendChild(d);
+    setTimeout(function () { d.classList.add('out'); }, 5200);
+    setTimeout(function () { d.remove(); }, 5800);
+  }
+  window.zfToast = toast;
 
+  // ---- Wie eine App: Zurück-Wischen vom linken Rand ----
+  if (isIOS) {
+    var sx = 0, sy = 0, act = false, arrow = null;
+    document.addEventListener('touchstart', function (e) {
+      var t = e.touches[0];
+      act = e.touches.length === 1 && t.clientX < 22;
+      if (!act) return;
+      sx = t.clientX; sy = t.clientY;
+      if (!arrow) { arrow = document.createElement('div'); arrow.className = 'zf-back'; arrow.innerHTML = '&#x2039;'; document.body.appendChild(arrow); }
+      arrow.style.top = (sy - 22) + 'px'; arrow.style.transform = 'translateX(-60px)'; arrow.style.opacity = '0';
+    }, { passive: true });
+    document.addEventListener('touchmove', function (e) {
+      if (!act) return;
+      var t = e.touches[0], dx = t.clientX - sx, dy = Math.abs(t.clientY - sy);
+      if (dy > 60) { act = false; arrow.style.opacity = '0'; return; }
+      var k = Math.max(0, Math.min(1, dx / 90));
+      arrow.style.transform = 'translateX(' + (-60 + k * 72) + 'px) scale(' + (0.7 + k * 0.3) + ')';
+      arrow.style.opacity = String(k);
+      arrow.classList.toggle('ready', k >= 1);
+    }, { passive: true });
+    document.addEventListener('touchend', function (e) {
+      if (!act) return; act = false;
+      var t = e.changedTouches[0], ok = t.clientX - sx > 90 && Math.abs(t.clientY - sy) < 60;
+      if (arrow) { arrow.style.opacity = '0'; arrow.style.transform = 'translateX(-60px)'; }
+      if (ok && window.zfBack) window.zfBack();
+    }, { passive: true });
+    // Kein Doppeltipp-/Pinch-Zoom der Seite (3D-Garage zoomt weiter selbst)
+    document.addEventListener('gesturestart', function (e) { e.preventDefault(); });
+  }
 
   // ---- Einladungs-Link (?c=CODE) ----
   var m = location.search.match(/[?&]c=([A-Za-z0-9-]{10,12})/);

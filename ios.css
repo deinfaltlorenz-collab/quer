@@ -23,3 +23,10 @@ html.zf-ios input, html.zf-ios textarea { -webkit-user-select: text; user-select
 .zf-inv-btn { display: block; text-align: center; text-decoration: none; padding: 15px; border-radius: 14px; border: 1px solid #2f2f36; background: #1b1b20; color: #f2f2f2; font-size: 16px; font-weight: 600; font-family: inherit; }
 .zf-inv-btn.acid { background: #d4ff3a; color: #101400; border-color: #d4ff3a; }
 .zf-inv-skip { margin-top: 6px; background: none; border: 0; color: #77777f; font-size: 14px; padding: 10px; font-family: inherit; }
+html.zf-ios body { touch-action: manipulation; }
+.zf-ios-toast { position: fixed; left: 14px; right: 14px; top: calc(env(safe-area-inset-top,0px) + 12px); z-index: 100001; background: #d4ff3a; color: #101400;
+  border-radius: 14px; padding: 12px 14px; font: 600 14px/1.4 Inter, system-ui, sans-serif; box-shadow: 0 8px 24px rgba(0,0,0,.4); transition: opacity .5s, transform .5s; }
+.zf-ios-toast.out { opacity: 0; transform: translateY(-20px); }
+.zf-back { position: fixed; left: 0; z-index: 100002; width: 44px; height: 44px; border-radius: 50%; background: rgba(40,40,46,.92); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 34px; line-height: 1; padding-bottom: 4px; pointer-events: none; opacity: 0; transition: background .15s; }
+.zf-back.ready { background: #d4ff3a; color: #101400; }

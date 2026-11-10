@@ -1,4 +1,4 @@
-const V = 'quer-web-2.1.0-bbadce40';
+const V = 'quer-web-2.2.0-6c156c3b';
 const SHELL = ['./', './index.html', './ios.js', './manifest.webmanifest', './icon-192.png'];
 
 self.addEventListener('install', (e) => {

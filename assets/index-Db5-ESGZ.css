@@ -489,3 +489,4 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-hall-row.ok .zf-hall-ic{background:color-mix(in srgb,var(--acid) 20%,transparent);color:var(--acid)}
 .zf-card-prev{width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
 .zf-ms-next{border-left:3px solid #e10600}
+.zf-phint{margin-top:10px;border-left:3px solid #f2c200}

@@ -497,3 +497,7 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-act-pl{display:flex;align-items:center;gap:6px;padding:8px;border-radius:12px;background:var(--panel2,#17181b)}
 .zf-hell{border-left:3px solid #ff2d55}
 .zf-hell-safe{padding:8px 10px;border-radius:10px;background:rgba(255,45,85,.1);color:#ffb3c2;line-height:1.35}
+.zf-cfh-head{background:radial-gradient(120% 90% at 100% 0,color-mix(in srgb,var(--acid) 14%,transparent),transparent 60%),var(--panel)}
+.zf-cfh-g{font-weight:600;color:var(--dim);font-size:.9em}
+.zf-cfh-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.zf-cfh .btn.small{justify-content:center}

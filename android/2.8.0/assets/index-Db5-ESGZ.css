@@ -501,3 +501,9 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-cfh-g{font-weight:600;color:var(--dim);font-size:.9em}
 .zf-cfh-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
 .zf-cfh .btn.small{justify-content:center}
+.zf-atb{position:fixed;left:10px;right:10px;top:calc(env(safe-area-inset-top,0px) + 64px);z-index:120;animation:zfBub .25s ease both}
+.zf-atb-in{background:rgba(14,16,20,.97);border:1.5px solid var(--acid);border-radius:16px;padding:10px 12px;box-shadow:0 12px 34px rgba(0,0,0,.6)}
+.zf-tt{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:8px;font-size:11px;background:rgba(255,255,255,.1);color:#cfd5dd}
+.zf-tt.warn{background:rgba(255,90,31,.18);color:var(--orange)}
+.zf-btrow.on{border-color:var(--acid)}
+.zf-btsel{width:auto;max-width:120px;padding:6px 8px;font-size:12px}

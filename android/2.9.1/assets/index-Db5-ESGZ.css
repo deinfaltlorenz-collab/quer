@@ -517,3 +517,5 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-st-rk.me{border-color:var(--acid)}
 .zf-tire.due{border-color:var(--red)}
 .zf-done{padding:5px 10px;margin-right:6px}
+.zf-fi-av.zf-fi-q{background:#0b0b0c;color:var(--acid);border:1.5px solid var(--acid);font-family:"Bebas Neue",sans-serif;font-size:18px}
+.zf-fi.sys .zf-fi-h b{color:var(--acid);letter-spacing:.04em}

@@ -480,3 +480,12 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-cvp-p.btn{cursor:pointer;min-height:0}
 .zf-race{background:rgba(21,21,23,.95);display:flex;flex-direction:column;gap:6px}
 .zf-race-btn{align-self:flex-start}
+.zf-film-wrap{display:flex;justify-content:center;background:#000;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.zf-film{width:100%;max-width:420px;aspect-ratio:9/16;height:auto;display:block;background:#000}
+.zf-filmbtn{margin:0 0 12px}
+.zf-hall-row{display:flex;align-items:center;gap:10px;padding:8px;border-radius:12px;background:var(--panel2,#17181b);opacity:.7}
+.zf-hall-row.ok{opacity:1;outline:1px solid color-mix(in srgb,var(--acid) 35%,transparent)}
+.zf-hall-ic{display:inline-flex;width:34px;height:34px;border-radius:10px;align-items:center;justify-content:center;background:#23262c;color:var(--dim)}
+.zf-hall-row.ok .zf-hall-ic{background:color-mix(in srgb,var(--acid) 20%,transparent);color:var(--acid)}
+.zf-card-prev{width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.zf-ms-next{border-left:3px solid #e10600}

@@ -423,3 +423,26 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-live b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:56vw}
 .zf-live-t small{font-size:11px;color:#a9a9b0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:56vw}
 .zf-dup{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:6px;background:rgba(255,140,40,.18);color:var(--orange,#ff8c28);font-size:11px;font-weight:600;vertical-align:middle}
+.zf-cm{display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer}
+.zf-cm i{position:relative;display:flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:#1c1f24;color:#fff;font:800 12px Inter,sans-serif;font-style:normal;border:3px solid #d4ff3a;box-shadow:0 3px 12px rgba(0,0,0,.55)}
+.zf-cm.live i{animation:zfCmPulse 2s ease-out infinite}
+.zf-cm.old i{border-color:#6b7078;opacity:.75}
+.zf-cm i u{position:absolute;inset:-9px;pointer-events:none}
+.zf-cm i u:before{content:"";position:absolute;left:50%;top:0;margin-left:-5px;border:5px solid transparent;border-bottom:8px solid #d4ff3a;border-top:0}
+.zf-cm b{margin-top:3px;padding:1px 7px;border-radius:999px;background:rgba(10,12,16,.85);color:#fff;font:700 11px Inter,sans-serif;white-space:nowrap}
+.zf-cm s{text-decoration:none;color:#c9ccd2;font:600 10px Inter,sans-serif;text-shadow:0 1px 3px #000;white-space:nowrap}
+.zf-cm.live s{color:#d4ff3a}
+@keyframes zfCmPulse{0%{box-shadow:0 0 0 0 rgba(212,255,58,.55),0 3px 12px rgba(0,0,0,.55)}100%{box-shadow:0 0 0 14px rgba(212,255,58,0),0 3px 12px rgba(0,0,0,.55)}}
+.zf-ride-row{display:flex;gap:10px;overflow-x:auto;padding:4px 0 2px}
+.zf-ride{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px;border-radius:14px;background:var(--panel2,#17181b);border:1px solid var(--line)}
+.zf-cartop .body{fill:#23262c;stroke:#3a3e46;stroke-width:2}
+.zf-cartop .glass{fill:#2f3d4a;opacity:.8}
+.zf-cartop .seat rect{fill:#30343b;stroke:#454a53;stroke-width:1.5}
+.zf-cartop .seat text{fill:#fff;font:800 13px Inter,sans-serif}
+.zf-cartop .seat text.nm{fill:#c9ccd2;font:600 9px Inter,sans-serif}
+.zf-cartop .seat.free rect{fill:transparent;stroke:#d4ff3a;stroke-dasharray:4 3}
+.zf-cartop .seat.free text{fill:#d4ff3a;font-size:20px}
+.zf-cartop .seat.drv rect{fill:#3a3f47}
+.zf-cartop .seat.me rect{fill:#d4ff3a;stroke:#d4ff3a}
+.zf-cartop .seat.me text:not(.nm){fill:#111}
+.zf-cartop .wheel{fill:none;stroke:#8a8f98;stroke-width:2}

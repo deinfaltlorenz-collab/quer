@@ -186,4 +186,32 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { setTimeout(hint, 2500); });
   else setTimeout(hint, 2500);
+
+  // 1.9.6: Doppel-Konten verhindern (Safari und Home-Bildschirm-App sind getrennte Speicher)
+  window.zfNoCrewHere = function () {
+    if (!isIOS || standalone) return false;
+    try { if (localStorage.getItem('zfBrowserOk') === '1') return false; } catch (e) {}
+    var ok = confirm('Wirklich hier in Safari beitreten?\n\nSafari und QUER am Home-Bildschirm sind für das iPhone zwei getrennte Apps. Wenn du beide nutzt, bist du doppelt in der Crew.\n\nBesser: QUER zum Home-Bildschirm hinzufügen und dort beitreten.\n\nOK = trotzdem hier beitreten');
+    if (ok) { try { localStorage.setItem('zfBrowserOk', '1'); } catch (e) {} return false; }
+    return true;
+  };
+  function gate() {
+    if (!isIOS || standalone || code) return;
+    try { if (sessionStorage.getItem('zfGateSkip') || localStorage.getItem('zfBrowserOk') === '1') return; } catch (e) {}
+    var d = document.createElement('div');
+    d.className = 'zf-inv';
+    d.innerHTML =
+      '<div class="zf-inv-box">' +
+      '<div class="zf-inv-logo">QU<em>E</em>R</div>' +
+      '<div class="zf-inv-t">Öffne QUER am Home-Bildschirm</div>' +
+      '<div class="zf-inv-note">Hast du QUER schon am Home-Bildschirm? Dann schließ Safari und öffne es dort. Safari ist für das iPhone eine eigene App, sonst bist du doppelt in der Crew.</div>' +
+      '<div class="zf-inv-step"><span>1</span><div>Noch nicht installiert? Unten auf <b>Teilen</b> <i class="zf-a2hs-i">&#x2191;</i> tippen</div></div>' +
+      '<div class="zf-inv-step"><span>2</span><div><b>Zum Home-Bildschirm</b> wählen und <b>Hinzufügen</b></div></div>' +
+      '<div class="zf-inv-step"><span>3</span><div>QUER am Home-Bildschirm öffnen</div></div>' +
+      '<button class="zf-inv-skip">Nur kurz in Safari anschauen</button></div>';
+    document.body.appendChild(d);
+    d.querySelector('.zf-inv-skip').onclick = function () { try { sessionStorage.setItem('zfGateSkip', '1'); } catch (e) {} d.remove(); };
+    try { localStorage.setItem('zfA2HS', '1'); } catch (e) {}
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', gate); else gate();
 })();

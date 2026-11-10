@@ -490,3 +490,8 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-card-prev{width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
 .zf-ms-next{border-left:3px solid #e10600}
 .zf-phint{margin-top:10px;border-left:3px solid #f2c200}
+.zf-act{padding:12px}
+.zf-act.none{opacity:.55}
+.zf-act-ic{display:inline-flex;width:40px;height:40px;flex:0 0 auto;border-radius:12px;align-items:center;justify-content:center;background:color-mix(in srgb,var(--c) 20%,transparent);color:var(--c)}
+.zf-act-w{margin-left:6px;padding:1px 6px;border-radius:6px;background:rgba(58,160,255,.18);color:#7ab8ff;font-size:11px;font-weight:600}
+.zf-act-pl{display:flex;align-items:center;gap:6px;padding:8px;border-radius:12px;background:var(--panel2,#17181b)}

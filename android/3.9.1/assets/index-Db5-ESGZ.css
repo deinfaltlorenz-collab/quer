@@ -558,3 +558,10 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-kit{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:inherit;font:inherit}
 .zf-kit b{font-size:14px}.zf-kit span{font-size:11.5px;opacity:.65;line-height:1.3}
 .zf-kit:active{background:rgba(168,85,247,.18);border-color:#a855f7}
+.zf-tree{display:flex;flex-direction:column;gap:10px}
+.zf-tree-h{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:6px}
+.zf-chips{display:flex;flex-wrap:wrap;gap:6px}
+.zf-chips button{padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:inherit;font:inherit;font-size:13px}
+.zf-chips button small{opacity:.55;font-size:11px}
+.zf-chips button.on{background:#d4ff3a;color:#101400;border-color:#d4ff3a}
+.zf-chips button.lock{opacity:.4}

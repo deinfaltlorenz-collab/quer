@@ -519,3 +519,19 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-done{padding:5px 10px;margin-right:6px}
 .zf-fi-av.zf-fi-q{background:#0b0b0c;color:var(--acid);border:1.5px solid var(--acid);font-family:"Bebas Neue",sans-serif;font-size:18px}
 .zf-fi.sys .zf-fi-h b{color:var(--acid);letter-spacing:.04em}
+.zf-sty-ov{position:fixed;inset:0;z-index:9000;background:rgba(6,6,8,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);overflow-y:auto;padding:calc(var(--top,0px) + 22px) 16px calc(var(--bot,0px) + 22px)}
+.zf-sty-box{max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.zf-sty-b{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;padding:12px;border-radius:14px;border:1.5px solid rgba(255,255,255,.1);background:linear-gradient(160deg,color-mix(in srgb,var(--sc,#888) 14%,#18181b),#141416);color:inherit;font:inherit;min-height:122px;transition:transform .12s,border-color .15s,box-shadow .15s}
+.zf-sty-b:active{transform:scale(.97)}
+.zf-sty-b.on{border-color:var(--sc,var(--acid));box-shadow:0 0 0 1px var(--sc,var(--acid)),0 10px 30px -12px var(--sc,var(--acid))}
+.zf-sty-b.on:after{content:"✓";position:absolute;top:8px;right:10px;width:22px;height:22px;border-radius:11px;background:var(--sc,var(--acid));color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.zf-sty-e{font-size:28px;line-height:1}
+.zf-sty-n{font-family:Bebas Neue,sans-serif;font-size:24px;letter-spacing:.04em;line-height:1;margin-top:4px}
+.zf-sty-g{margin-top:auto;padding-top:6px;font-size:12px;font-weight:600;color:var(--sc,var(--acid))}
+.zf-sty-mix{flex-direction:row;align-items:center;gap:12px;min-height:0;--sc:#d4ff3a;background:linear-gradient(90deg,rgba(255,90,31,.12),rgba(61,139,255,.12),rgba(180,92,255,.12),rgba(212,255,58,.12)),#141416}
+.zf-sty-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;border:1px solid var(--sc);background:color-mix(in srgb,var(--sc) 18%,transparent);font-size:13px;font-weight:600;white-space:nowrap}
+.zf-sty-badge.sm{padding:1px 7px;font-size:11px}
+.zf-styf{display:flex;flex-direction:column;gap:8px;padding:10px;border-radius:14px;border:1px solid color-mix(in srgb,var(--acid) 45%,transparent);background:linear-gradient(160deg,color-mix(in srgb,var(--acid) 10%,transparent),transparent 70%)}
+.zf-styf-go{font-size:26px!important;padding:16px!important}
+.zf-styf-tip{padding:2px 4px}
+.zf-styi{border-left:3px solid var(--acid)}

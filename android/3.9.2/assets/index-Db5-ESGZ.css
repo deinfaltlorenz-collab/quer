@@ -565,3 +565,14 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-chips button small{opacity:.55;font-size:11px}
 .zf-chips button.on{background:#d4ff3a;color:#101400;border-color:#d4ff3a}
 .zf-chips button.lock{opacity:.4}
+.zf-nav{display:flex;flex-direction:column;gap:10px}
+.zf-nav-h{display:flex;align-items:center;gap:12px;min-height:44px}
+.zf-nav-h small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}
+.zf-nav-h b{font-size:18px}
+.zf-nav-back{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:inherit;font-size:26px;line-height:1;flex:none}
+.zf-nav-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.zf-nav-list button{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;padding:12px 28px 12px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:inherit;font:inherit;min-height:56px}
+.zf-nav-list button b{font-size:15px}.zf-nav-list button small{font-size:11.5px;opacity:.55}
+.zf-nav-list button i{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-style:normal;opacity:.4;font-size:20px}
+.zf-nav-list button.on{border-color:#d4ff3a;background:rgba(212,255,58,.1)}
+.zf-nav-list button.lock{opacity:.45}

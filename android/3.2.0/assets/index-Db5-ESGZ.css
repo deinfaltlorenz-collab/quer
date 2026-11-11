@@ -535,3 +535,12 @@ body.zf-heute-open .g-hint{display:none!important}
 .zf-styf-go{font-size:26px!important;padding:16px!important}
 .zf-styf-tip{padding:2px 4px}
 .zf-styi{border-left:3px solid var(--acid)}
+.garage[data-st=schrauben] .hs-ic{border:0;border-radius:0;width:34px;height:30px;background:#ff7a1a;color:#1a0900;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);box-shadow:none}
+.garage[data-st=schrauben] .hs-label{background:#1b1c1f;border:0;border-left:3px solid #ff7a1a;border-radius:2px;color:#f0f0f0}
+.garage[data-st=fahren] .hs-ic{border:2px solid #fff;border-radius:5px;background:#d0101e;color:#fff;box-shadow:0 0 0 3px rgba(0,0,0,.6)}
+.garage[data-st=fahren] .hs-label{background:#fff;color:#111;border:0;border-radius:3px;font-style:italic;border-bottom:3px solid #d0101e}
+.garage[data-st=tuning] .hs-ic{border:2px solid #c58bff;background:rgba(18,8,30,.88);color:#e8d4ff;box-shadow:0 0 10px #b45cff,inset 0 0 6px rgba(46,230,214,.6)}
+.garage[data-st=tuning] .hs-label{background:rgba(18,8,30,.9);border-color:#b45cff;color:#e8d4ff;text-shadow:0 0 6px #b45cff}
+.garage[data-st=cruisen] .hs-ic{border:2px solid #fff;border-radius:8px;background:#1f5fd6;color:#fff;box-shadow:0 0 14px rgba(61,139,255,.55)}
+.garage[data-st=cruisen] .hs-label{background:#1f5fd6;border:1.5px solid #fff;color:#fff;border-radius:5px}
+.garage[data-st] .hs-ic .dot{z-index:2}
